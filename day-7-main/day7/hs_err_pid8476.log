@@ -1,0 +1,219 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 67108864 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3559), pid=8476, tid=3736
+#
+# JRE version:  (17.0.7+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.7+7, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53492 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=day7 -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages com.example.demo.Day7Application --spring.output.ansi.enabled=always
+
+Host: Intel(R) Core(TM) i5-2520M CPU @ 2.50GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3155)
+Time: Fri Sep  1 12:21:21 2023 India Standard Time elapsed time: 0.030749 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000027a1c8d8830):  JavaThread "Unknown thread" [_thread_in_vm, id=3736, stack(0x000000cb60600000,0x000000cb60700000)]
+
+Stack: [0x000000cb60600000,0x000000cb60700000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x67754a]
+V  [jvm.dll+0x834304]
+V  [jvm.dll+0x835aae]
+V  [jvm.dll+0x836113]
+V  [jvm.dll+0x24696f]
+V  [jvm.dll+0x6743f9]
+V  [jvm.dll+0x668c8a]
+V  [jvm.dll+0x3061bb]
+V  [jvm.dll+0x30d6a6]
+V  [jvm.dll+0x35cece]
+V  [jvm.dll+0x35d0ff]
+V  [jvm.dll+0x2dd048]
+V  [jvm.dll+0x2ddfb4]
+V  [jvm.dll+0x8066d1]
+V  [jvm.dll+0x36ac91]
+V  [jvm.dll+0x7e5cec]
+V  [jvm.dll+0x3ed56f]
+V  [jvm.dll+0x3ef0a1]
+C  [jli.dll+0x528b]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17614]
+C  [ntdll.dll+0x526b1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffc22927018, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000027a1c914930 GCTaskThread "GC Thread#0" [stack: 0x000000cb60700000,0x000000cb60800000] [id=1616]
+  0x0000027a1c91d480 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000cb60800000,0x000000cb60900000] [id=2812]
+  0x0000027a1c91e540 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000cb60900000,0x000000cb60a00000] [id=12464]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffc220fdaf7]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000027a1c8d2d30] Heap_lock - owner thread: 0x0000027a1c8d8830
+
+Heap address: 0x00000000c1800000, size: 1000 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x00000000c1800000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffc224e0db9]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.013 Loaded shared library D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff68d8a0000 - 0x00007ff68d8ae000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\javaw.exe
+0x00007ffc77b50000 - 0x00007ffc77d48000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc77820000 - 0x00007ffc778df000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc75790000 - 0x00007ffc75a86000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc752f0000 - 0x00007ffc753f0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc6ccd0000 - 0x00007ffc6cce7000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\jli.dll
+0x00007ffc76980000 - 0x00007ffc76b1d000 	C:\Windows\System32\USER32.dll
+0x00007ffc752c0000 - 0x00007ffc752e2000 	C:\Windows\System32\win32u.dll
+0x00007ffc76bd0000 - 0x00007ffc76bfc000 	C:\Windows\System32\GDI32.dll
+0x00007ffc75a90000 - 0x00007ffc75ba5000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc753f0000 - 0x00007ffc7548d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc5f7e0000 - 0x00007ffc5f7f9000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\VCRUNTIME140.dll
+0x00007ffc65810000 - 0x00007ffc65aaa000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffc77950000 - 0x00007ffc779ee000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc76de0000 - 0x00007ffc76e10000 	C:\Windows\System32\IMM32.DLL
+0x00007ffc71f20000 - 0x00007ffc71f2c000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\vcruntime140_1.dll
+0x00007ffc58af0000 - 0x00007ffc58b81000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\msvcp140.dll
+0x00007ffc21e10000 - 0x00007ffc22a58000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\server\jvm.dll
+0x00007ffc76b20000 - 0x00007ffc76bcf000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc75bb0000 - 0x00007ffc75c4c000 	C:\Windows\System32\sechost.dll
+0x00007ffc76c00000 - 0x00007ffc76d26000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc6fc80000 - 0x00007ffc6fc89000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc76890000 - 0x00007ffc768fb000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc5dbf0000 - 0x00007ffc5dc17000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc64330000 - 0x00007ffc6433a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc730d0000 - 0x00007ffc730e2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffc6e520000 - 0x00007ffc6e52a000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\jimage.dll
+0x00007ffc63dc0000 - 0x00007ffc63fa4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffc62900000 - 0x00007ffc62934000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffc75230000 - 0x00007ffc752b2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc57e30000 - 0x00007ffc57e55000 	D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;D:\RetAPI\sts-4.19.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\server
+
+VM Arguments:
+jvm_args: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53492 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=day7 -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages 
+java_command: com.example.demo.Day7Application --spring.output.ansi.enabled=always
+java_class_path (initial): C:\Users\admin\Downloads\day-7-main\day7\target\classes;C:\Users\admin\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.1.3\spring-boot-starter-data-jpa-3.1.3.jar;C:\Users\admin\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.1.3\spring-boot-starter-aop-3.1.3.jar;C:\Users\admin\.m2\repository\org\springframework\spring-aop\6.0.11\spring-aop-6.0.11.jar;C:\Users\admin\.m2\repository\org\aspectj\aspectjweaver\1.9.20\aspectjweaver-1.9.20.jar;C:\Users\admin\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.1.3\spring-boot-starter-jdbc-3.1.3.jar;C:\Users\admin\.m2\repository\com\zaxxer\HikariCP\5.0.1\HikariCP-5.0.1.jar;C:\Users\admin\.m2\repository\org\springframework\spring-jdbc\6.0.11\spring-jdbc-6.0.11.jar;C:\Users\admin\.m2\repository\org\hibernate\orm\hibernate-core\6.2.7.Final\hibernate-core-6.2.7.Final.jar;C:\Users\admin\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\admin\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\admin\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\admin\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\admin\.m2\repository\io\smallrye\jandex\3.0.5\jandex-3.0.5.jar;C:\Users\admin\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\admin\.m2\repository\net\bytebuddy\byte-buddy\1.14.6\byte-buddy-1.14.6.jar;C:\Users\admin\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.3\jaxb-runtime-4.0.3.jar;C:\Users\admin\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.3\jaxb-core-4.0.3.jar;C:\Users\admin\.m2\repository\org\eclipse\angus\angus-activation\2.0.1\angus-activation-2.0.1.jar;C:\Users\admin\.m2\repository\org\glassfish\jaxb\txw2\4.0.3\txw2-4.0.3.jar;C:\Users\admin\.m2\repository\com\sun\i
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 67108864                                  {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1048576000                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 1048576000                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=D:/RetAPI/sts-4.19.1.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502/jre/bin/server;D:/RetAPI/sts-4.19.1.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502/jre/bin;C:\Python311\Scripts\;C:\Python311\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\Program Files\Polyspace\R2021a\polyspace\bin;G:\node js\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\National Instruments\Shared\LabVIEW CLI;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;C:\Users\admin\AppData\Roaming\npm;C:\Users\admin\AppData\Local\Programs\Microsoft VS Code\bin;D:\RetAPI\sts-4.19.1.RELEASE;
+USERNAME=admin
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+TMP=C:\Users\admin\AppData\Local\Temp
+TEMP=C:\Users\admin\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3155)
+OS uptime: 0 days 3:18 hours
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 42 stepping 7 microcode 0x2f, cx8, cmov, fxsr, ht, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, tsc, tscinvbit, avx, aes, clmul, vzeroupper, clflush
+
+Memory: 4k page, system-wide physical 3992M (300M free)
+TotalPageFile size 8992M (AvailPageFile size 47M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 46M, peak: 110M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.7+7) for windows-amd64 JRE (17.0.7+7), built on Apr 18 2023 22:10:42 by "temurin" with MS VC++ 16.7 (VS2019)
+
+END.
